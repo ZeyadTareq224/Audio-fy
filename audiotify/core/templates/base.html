@@ -1,0 +1,98 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+  </head>
+  <body>
+
+<!-- Navigation -->
+    <div class="title-bar" data-responsive-toggle="realEstateMenu" data-hide-for="small">
+      <button class="menu-icon" type="button" data-toggle></button>
+      <div class="title-bar-title">Menu</div>
+    </div>
+
+    <div class="top-bar" id="realEstateMenu">
+      <div class="top-bar-left">
+        <ul class="menu" data-responsive-menu="accordion">
+          <li class="menu-text"><img style="width: 30px; height: 30px;" src="https://lh3.googleusercontent.com/-KTN5YH5k7X8r_XEghkihALEpPtcZS8nC9lZMUbzCZq5BK65StF_CsgIw8rkaNDWdUn1" alt=""> Audio-fy</li>
+          {% if request.user.is_authenticated %}
+          <li><a href="{% url 'history'  %}">History</a></li>
+          <li><a href="{% url 'saved-pdfs'  %}">Library</a></li>
+          {% endif %}
+          <li><a href="{% url 'FAQ' %}">FAQ</a></li>
+          <li><a href="https://github.com/ZeyadTareq224/Audio-fy">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu" data-responsive-menu="accordion">
+          {% if request.user.is_authenticated %}
+          <li><a href="{% url 'account_logout' %}" class="button">Logout</a></li>
+          <li><a href="#">My Account</a></li>
+
+          {% else %}
+          <li><a href="{% url 'account_login' %}" class="button">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    <!-- /Navigation -->
+    <br>
+    
+    {% block content %}
+
+    {% endblock %}
+    <br>
+    <br><br>
+    <footer>
+      <div class="row expanded callout secondary">
+    
+        <div class="small-6 large-3 columns">
+          <a href="https://ziyadtr-website.herokuapp.com/"><p class="lead">About The Developer</p></a>
+          
+        </div>
+    
+        <div class="small-6 large-3 columns">
+        <a href="https://github.com/ZeyadTareq224"><p class="lead">Github</p></a>
+          
+        </div>
+    
+        <div class="small-6 large-3 columns">
+          <p class="lead">ziyadtr101@gmail.com</p>
+          
+        </div>
+    
+        <div class="small-6 large-3 columns">
+          <a href="https://www.facebook.com/profile.php?id=100006441600847"><p class="lead">FACEBOOK</p></a>
+          
+        </div>
+        <center>
+          <div>
+            <h5>Please reach out if you found any bugs. i am also open for suggestions and improvments <br><b>Here are some links to reach out. and i'm sorry, i'm so tired to add a contact form MY BAD!!</b></h5> 
+          </div>
+        </center>
+      </div>
+      <div class="row">
+    
+        
+        <div class="medium-3 columns"></div>
+        <div class="medium-7 columns">
+          <ul class="menu float-right">
+            <li class="menu-text">&copy; All Rights Reserved 2020</li>
+          </ul>
+        </div>
+        <div class="medium-4 columns"></div>
+
+      </div>
+    </footer>
+    
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+        <script>
+          $(document).foundation();
+        </script>
+    
+  </body>
+</html>

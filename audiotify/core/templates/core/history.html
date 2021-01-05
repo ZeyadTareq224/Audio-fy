@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if audios %}
+        <div class="row small-up-1 medium-up-2 large-up-3">    
+        {% for audio in audios %}
+            <div class="column">
+                <div class="callout">
+                <p>{{request.user}}</p>
+                <p><img src="https://lh3.googleusercontent.com/-KTN5YH5k7X8r_XEghkihALEpPtcZS8nC9lZMUbzCZq5BK65StF_CsgIw8rkaNDWdUn1" alt="image of a planet called Pegasi B"></p>
+                <p style="font-size: small;" class="lead">{{audio.book}} <br> Page: {{audio.page}}</p>
+                <audio controls>
+                    <source src="http://localhost:8000/media/audios/{{audio.get_audio_name}}.mp3" type="audio/mp3">
+                </audio>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+      
+      </div>
+    {% else %}
+    <center>
+        <h4>Your History Is Clear <br> Start Converting Pdfs To Audios Now ?</h4>
+        <a class="button" href="{% url 'home' %}">Click Here</a>
+    </center>
+    {%endif%}
+{% endblock %}

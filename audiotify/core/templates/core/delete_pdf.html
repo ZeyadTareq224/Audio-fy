@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<center>
+    <h1>Are You Sure You Want To Delete This Pdf <p style="color: brown;">{{pdf.book}}</p></h1>
+    <form method=POST>
+        {% csrf_token %}
+        <button class="alert button">Delete</button>
+    </form>
+    <a class="button" href="{% url 'saved-pdfs' %}">Cancel</a>
+</center>
+{% endblock %}

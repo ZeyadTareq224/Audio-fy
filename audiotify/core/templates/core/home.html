@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+
+    <div class="medium-7 large-6 columns">
+      <h1>Close Your Eyes and Open Your Minds</h1>
+      <p class="subheader">Things gets really tough when reading with tired eyes right!!, you may go looking for audio books to listen to, but what if you dont find your desired book in an audio book form. Here when audio-fy comes to save the day. you just need to upload the pdf you want to convert and specify the page number and booom your audio is ready. you can listen to your audio online or even download it for later user. How AWESOME is that try it out for free now.</p>
+      <a href="{% url 'account_signup' %}"><button class="button">Get Started</button></a>
+    </div>
+    {% if request.user.is_authenticated %}
+    <div class="show-for-large large-3 columns">
+        <img src="https://lh3.googleusercontent.com/-KTN5YH5k7X8r_XEghkihALEpPtcZS8nC9lZMUbzCZq5BK65StF_CsgIw8rkaNDWdUn1" alt="picture of space">
+      </div>
+    
+    <div class="medium-5 large-3 columns">
+        <div class="callout secondary">
+          <h3 style="color: rgb(131, 12, 12);">Now You Can Use The Tool</h3>
+          <form action="{% url 'home' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+              <div class="small-12 columns">
+                <label>Pdf Document
+                  {{form.book}}
+                </label>
+              </div>
+              <div class="small-12 columns">
+                <label>Page Number
+                  {{form.page}}
+                </label>
+                <button type="submit" class="button">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+  {% endif %}
+  
+  <div class="row column">
+    <hr>
+  </div>
+    
+{% endblock %}
